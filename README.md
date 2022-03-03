@@ -12,7 +12,7 @@ Or you can send me also via Crypto Wallet :) - if you don't have then you can si
 
 | Wallet Type | Wallet Address | Information | 
 | ---------- | ---------------------------------- | ------------------------------------------------------------------------------ |
-| BTC WALLET | 32XaJdED5oNN9DWXcx3RQDo8uRCybh2WTx | ( Note if BTC network takes longer then you should use other wallet address bottom ) | 
+| BTC WALLET | 32XaJdED5oNN9DWXcx3RQDo8uRCybh2WTx | ( Note if BTC network takes longer then you should use other wallet address below ) | 
 | ETC WALLET | 0x4C5dD3f6E4630ebDA8c30440192bac5E4ffD8bBa | 
 | ZEC WALLET | t1XVd5UTApKAdzMV3AzTfCA5FCUZL6T5qps | 
 | DOGE WALLET | DSAfUyyTL4MScjXWZFP1winpbSdsPZZ6Vy | 
