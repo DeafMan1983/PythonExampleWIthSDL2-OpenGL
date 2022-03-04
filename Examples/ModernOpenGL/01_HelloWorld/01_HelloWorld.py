@@ -1,10 +1,8 @@
 import sys
 import ctypes
-
-from OpenGL import GL, GLU
+from OpenGL import GL
 
 import sdl2
-from sdl2 import video
 
 def run():
     if sdl2.SDL_Init(sdl2.SDL_INIT_VIDEO) != 0:
@@ -16,10 +14,13 @@ def run():
         print(sdl2.SDL_GetError())
         return  -1
 
-    video.SDL_GL_SetAttribute(video.SDL_GL_CONTEXT_MAJOR_VERSION, 3)
-    video.SDL_GL_SetAttribute(video.SDL_GL_CONTEXT_MINOR_VERSION, 0)
-    video.SDL_GL_SetAttribute(video.SDL_GL_CONTEXT_PROFILE_MASK, video.SDL_GL_CONTEXT_PROFILE_CORE)
+    sdl2.SDL_GL_SetAttribute(sdl2.SDL_GL_CONTEXT_MAJOR_VERSION, 3)
+    sdl2.SDL_GL_SetAttribute(sdl2.SDL_GL_CONTEXT_MINOR_VERSION, 0)
+    sdl2.SDL_GL_SetAttribute(sdl2.SDL_GL_CONTEXT_PROFILE_MASK, sdl2.SDL_GL_CONTEXT_PROFILE_CORE)
     context = sdl2.SDL_GL_CreateContext(window)
+    if not context:
+        print(sdl2.SDL_GetError())
+        return  -1
 
     event = sdl2.SDL_Event()
     running = True
@@ -33,11 +34,11 @@ def run():
                     running = False
 
         GL.glClearColor(1, 0.25, 0, 1)
-        GL.glClear(GL.GL_COLOR_BUFFER_BIT | GL.GL_DEPTH_BUFFER_BIT)
+        GL.glClear(GL.GL_COLOR_BUFFER_BIT)
 
         sdl2.SDL_GL_SwapWindow(window)
 
-    sdl2.SDL_GL_DeleteContext(context);
+    sdl2.SDL_GL_DeleteContext(context)
     sdl2.SDL_DestroyWindow(window)
     sdl2.SDL_Quit()
     return 0
