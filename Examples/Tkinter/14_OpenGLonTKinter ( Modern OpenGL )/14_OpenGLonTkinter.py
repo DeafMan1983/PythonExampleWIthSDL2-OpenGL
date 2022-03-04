@@ -1,7 +1,6 @@
 import time
 import tkinter
 from OpenGL.GL import *
-from OpenGL.GL import shaders
 import numpy as np
 from pyopengltk import OpenGLFrame
 
@@ -22,9 +21,7 @@ class AppOgl(OpenGLFrame):
             {
                 gl_Position = position;
             }"""
-        
-        
-        
+               
         FRAGMENT_SHADER = """#version 330
         
             void main()
@@ -32,13 +29,21 @@ class AppOgl(OpenGLFrame):
                 gl_FragColor = vec4(1.0f, 1.0f, 1.0f,1.0f);
             }"""
 
-        # What is fuck with compileShader and compileProgram - It looks cheating!!!
-        # Please use original Modern OpenGL why not use hlCreateShader, glShaderSource and 
-        # glCreateProgram, glAttachShader, glCompileSHader and glLinkProgram  
-        vertexshader = shaders.compileShader(VERTEX_SHADER, GL_VERTEX_SHADER)
-        fragmentshader = shaders.compileShader(FRAGMENT_SHADER, GL_FRAGMENT_SHADER)
-        shaderProgram = shaders.compileProgram(vertexshader, fragmentshader)
-    
+        vertexshader = glCreateShader(GL_VERTEX_SHADER)
+        glShaderSource(vertexshader, VERTEX_SHADER)
+        glCompileShader(vertexshader)
+
+        fragmentshader = glCreateShader(GL_FRAGMENT_SHADER)
+        glShaderSource(fragmentshader, FRAGMENT_SHADER)
+        glCompileShader(fragmentshader)
+
+        shaderProgram = glCreateProgram()
+        glAttachShader(shaderProgram, vertexshader)
+        glAttachShader(shaderProgram, fragmentshader)
+        glLinkProgram(shaderProgram)
+        glDeleteShader(vertexshader)
+        glDeleteShader(fragmentshader)
+
         triangles = [-0.5, -0.5, 0.0,
                     0.5, -0.5, 0.0,
                     0.0, 0.5, 0.0]
