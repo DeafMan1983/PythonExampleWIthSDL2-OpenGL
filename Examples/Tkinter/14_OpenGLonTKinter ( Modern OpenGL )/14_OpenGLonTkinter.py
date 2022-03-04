@@ -43,23 +43,25 @@ class AppOgl(OpenGLFrame):
         glLinkProgram(shaderProgram)
         glDeleteShader(vertexshader)
         glDeleteShader(fragmentshader)
-
-        triangles = [-0.5, -0.5, 0.0,
+        glBindVertexArray(0)
+    
+        triangles = np.array([-0.5, -0.5, 0.0,
                     0.5, -0.5, 0.0,
-                    0.0, 0.5, 0.0]
+                    0.0, 0.5, 0.0], dtype=np.float32)
     
-        triangles = np.array(triangles, dtype=np.float32)
-    
+        VAO = glGenVertexArrays(1)
         VBO = glGenBuffers(1)
+
+        glBindVertexArray(VAO)
         glBindBuffer(GL_ARRAY_BUFFER, VBO)
         glBufferData(GL_ARRAY_BUFFER, triangles.nbytes, triangles, GL_STATIC_DRAW)
     
-        position = glGetAttribLocation(shaderProgram, 'position')
-        glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE, 0, None)
-        glEnableVertexAttribArray(position)
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, None)
+        glEnableVertexAttribArray(0)
 
         glUseProgram(shaderProgram)
-  
+
+        glBindVertexArray(VAO)
         glDrawArrays(GL_TRIANGLES, 0, 3)
     
         glUseProgram(0)
