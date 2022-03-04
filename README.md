@@ -3,6 +3,13 @@ For getting started and you would like to develop simple python application or g
 
 If you want download and test - You would like know how do you write with Python scripting. I develop a lot of features with Step to step and examples. If you have found issue and you don't need hesitate and you can post [Issues](https://github.com/DeafMan1983/PythonExamples/issues) amd We would like to help aand to fix issues/bugs. Thank you for understanding!
 
+# Changes and Improvements:
+
+| Date | sumary |
+| ---- | ------ |
+| 03 / 04 / 2022 | Added example with Legacy OpenGL |
+|      | ![](https://i.imgur.com/ZBoNS9Y.png) |
+
 Visit our [wiki](https://github.com/DeafMan1983/PythonExamples/wiki)!
 
 If you would like to spend me something money? No problem 
