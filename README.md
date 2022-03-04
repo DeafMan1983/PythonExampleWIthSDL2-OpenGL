@@ -7,6 +7,8 @@ If you want download and test - You would like know how do you write with Python
 
 | Date | sumary |
 | ---- | ------ |
+| 03 / 04 / 2022 | Added example with Modern OpenGL include legit GL-Functions |
+|      | ![](https://i.imgur.com/RBnwI7x.png) |
 | 03 / 04 / 2022 | Added example with Legacy OpenGL |
 |      | ![](https://i.imgur.com/ZBoNS9Y.png) |
 
